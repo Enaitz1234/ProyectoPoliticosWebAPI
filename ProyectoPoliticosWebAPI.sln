@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoPoliticosWebAPI", "ProyectoPoliticosWebAPI\ProyectoPoliticosWebAPI.csproj", "{3EEF2312-9083-4A17-BC8E-923635DCCAF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaz", "Interfaz\Interfaz.csproj", "{1E1C1A41-9B89-4A5B-A78B-400A639065E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EEF2312-9083-4A17-BC8E-923635DCCAF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EEF2312-9083-4A17-BC8E-923635DCCAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EEF2312-9083-4A17-BC8E-923635DCCAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EEF2312-9083-4A17-BC8E-923635DCCAF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E1C1A41-9B89-4A5B-A78B-400A639065E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1C1A41-9B89-4A5B-A78B-400A639065E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1C1A41-9B89-4A5B-A78B-400A639065E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1C1A41-9B89-4A5B-A78B-400A639065E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {697CD218-926A-482D-96C0-3035C0D054D7}
+	EndGlobalSection
+EndGlobal

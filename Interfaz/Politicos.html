@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Politicos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <h2>Politicos</h2>
+        <select id="dpdato" class="btn btn-secondary dropdown-toggle" onchange="change_myselect(this.value)">
+            <option value="">Politicos:</option>
+            <option value="1">Nombre1</option>
+            <option value="2">Nombre2</option>
+            <option value="3">Nombre3</option>
+            <option value="4">Nombre4</option>
+            <option value="5">Nombre5</option>
+            <option value="6">Nombre6</option>
+            <option value="7">Nombre7</option>
+        </select>
+        <p id="demo"></p>
+
+        <h3>Introduce el ID para eliminar el Politico</h3>
+        <input type="text" class="spinner-border" id="ID"><br>
+        <form action="Resultado.html">
+            <button onclick="eliminar()" class="btn btn-secondary">Eliminar</button>
+            <p id="resulados"></p>
+        </form>
+    </div>
+    <script>
+
+        function change_myselect() {
+            var obj, dbParam, xmlhttp, myObj, x, txt = "";
+            var x = parseInt(document.getElementById("dpdato").value);
+
+            dbParam = JSON.stringify(obj);
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    myObj = JSON.parse(this.responseText);
+                    txt += "<div class='container'><table class='table' border='3'>"
+
+                    txt += "<tr><th scope='row'>ID</th> <td>" + myObj.ID + "</td></tr>";
+                    txt += "<tr><th scope='row'>Nombre</th> <td>" + myObj.Nombre + "</td></tr>";
+                    txt += "<tr><th scope='row'>Apellido</th> <td>" + myObj.Apellido + "</td></tr>";
+                    txt += "<tr><th scope='row'>Mote</th> <td>" + myObj.Mote + "</td></tr>";
+                    txt += "<tr><th scope='row'>Partido Politico</th> <td>" + myObj.PartidoPolitico + "</td></tr>";
+
+                    txt += "</table></div>"
+                    document.getElementById("demo").innerHTML = txt;
+                }
+            };
+            xmlhttp.open("GET", "https://localhost:44387/API/Politicos/" + x, true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send();
+
+        }
+
+        function eliminar() {
+            var obj, dbParam, xmlhttp, x;
+            var x = (document.getElementById("ID").value);
+
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("resultados").innerHTML = this.responseText;
+                }
+            }
+            xmlhttp.withCredentials = false;
+
+            xmlhttp.open("DELETE", "https://localhost:44387/API/Politicos/" + x, true);
+
+
+            xmlhttp.setRequestHeader("content-type", "application/json");
+            xmlhttp.send();
+        }
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
